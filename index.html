@@ -19,7 +19,6 @@
         background-color: #f1f5f9; 
     }
     
-    /* Layar Loading Admin (Warna Biru Gelap Eksekutif) */
     #layar-loading {
       position: fixed;
       top: 0;
@@ -39,7 +38,7 @@
     
     .spinner {
       border: 4px solid rgba(255, 255, 255, 0.2);
-      border-top: 4px solid #38bdf8; /* Warna putaran biru muda */
+      border-top: 4px solid #38bdf8; 
       border-radius: 50%;
       width: 45px;
       height: 45px;
@@ -52,22 +51,20 @@
         100% { transform: rotate(360deg); } 
     }
 
+    /* PERBAIKAN SCROLL ADA DI SINI */
     .hide-banner {
       width: 100%;
       height: 100vh;
-      position: relative;
-      background: #f1f5f9;
-      overflow: hidden;
+      overflow-y: auto; /* Mengaktifkan scroll di dalam bungkusnya */
+      -webkit-overflow-scrolling: touch; /* Penting agar mulus di HP */
     }
     
     .hide-banner iframe {
-      position: absolute;
-      top: -30px; 
-      left: 0;
       width: 100%;
-      height: calc(100vh + 30px);
+      height: calc(100vh + 35px); 
       border: none;
-      overflow-y: auto;
+      margin-top: -35px; /* Mengganti position absolute dengan margin */
+      display: block;
     }
   </style>
 </head>
@@ -79,7 +76,7 @@
   </div>
 
   <div class="hide-banner">
-    <iframe src="https://script.google.com/macros/s/AKfycbwQsPc_NAorLHptiN_v7NSID0IDl6qUwpS_N0a7Ld5xFCxVRfj0c8qZ_FByB3rqibzcCg/exec?page=admin" onload="hilangkanLoader()"></iframe>
+    <iframe src="https://script.google.com/macros/s/AKfycbwQsPc_NAorLHptiN_v7NSID0IDl6qUwpS_N0a7Ld5xFCxVRfj0c8qZ_FByB3rqibzcCg/exec?page=admin" scrolling="yes" onload="hilangkanLoader()"></iframe>
   </div>
 
   <script>
