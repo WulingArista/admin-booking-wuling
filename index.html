@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Admin Panel Wuling Arista</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1e293b">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <style>
+    body, html { 
+        margin: 0; 
+        padding: 0; 
+        height: 100%; 
+        width: 100%;
+        overflow: hidden; 
+        background-color: #f1f5f9; 
+    }
+    
+    /* Layar Loading Admin (Warna Biru Gelap Eksekutif) */
+    #layar-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #1e293b; 
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: sans-serif;
+      transition: opacity 0.5s ease;
+    }
+    
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top: 4px solid #38bdf8; /* Warna putaran biru muda */
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    
+    @keyframes spin { 
+        0% { transform: rotate(0deg); } 
+        100% { transform: rotate(360deg); } 
+    }
+
+    .hide-banner {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      background: #f1f5f9;
+      overflow: hidden;
+    }
+    
+    .hide-banner iframe {
+      position: absolute;
+      top: -30px; 
+      left: 0;
+      width: 100%;
+      height: calc(100vh + 30px);
+      border: none;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="layar-loading">
+    <div class="spinner"></div>
+    <p style="font-weight: bold; letter-spacing: 1px;">Memuat Panel Admin...</p>
+  </div>
+
+  <div class="hide-banner">
+    <iframe src="https://script.google.com/macros/s/AKfycbwQsPc_NAorLHptiN_v7NSID0IDl6qUwpS_N0a7Ld5xFCxVRfj0c8qZ_FByB3rqibzcCg/exec?page=admin" onload="hilangkanLoader()"></iframe>
+  </div>
+
+  <script>
+    function hilangkanLoader() {
+      const loader = document.getElementById('layar-loading');
+      if(loader) {
+        loader.style.opacity = '0';
+        setTimeout(function() { loader.style.display = 'none'; }, 500);
+      }
+    }
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./sw.js').catch(function(err) {
+            console.log('PWA Gagal', err);
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
