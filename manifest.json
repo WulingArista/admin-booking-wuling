@@ -1,0 +1,27 @@
+{
+  "name": "Admin Panel Wuling Arista",
+  "short_name": "Admin Wuling",
+  "description": "Panel Admin Booking Service Wuling Arista Lampung",
+  "start_url": "/admin-booking-wuling/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "https://wulingarista.github.io/admin-booking-wuling/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://wulingarista.github.io/admin-booking-wuling/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://wulingarista.github.io/admin-booking-wuling/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
